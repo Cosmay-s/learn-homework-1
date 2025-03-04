@@ -39,26 +39,34 @@ def talk_to_me(update, context):
     user_text = update.message.text.split()
     planet_name = user_text[-1].capitalize()
     if planet_name == "Mars":
-        planet = ephem.Mars()
+       planet = ephem.Mars()
+
     elif planet_name == "Venus":
-        planet = ephem.Venus()
+         planet = ephem.Venus()
+
     elif planet_name == "Jupiter":
-        planet = ephem.Jupiter()
+         planet = ephem.Jupiter()
+
     elif planet_name == "Saturn":
-        planet = ephem.Saturn()
+         planet = ephem.Saturn()
+
     elif planet_name == "Mercury":
-        planet = ephem.Mercury()
+         planet = ephem.Mercury()
+
     elif planet_name == "Uranus":
-        planet = ephem.Uranus()
+         planet = ephem.Uranus()
+
     elif planet_name == "Neptune":
-        planet = ephem.Neptune()
+         planet = ephem.Neptune()
+
     elif planet_name == "Earth":
-        planet = ephem.Earth()
+         planet = ephem.Earth()
+
     elif planet_name == "Moon":
-        planet = ephem.Moon()
+         planet = ephem.Moon()
+         
     else:
-        update.message.reply_text(f"Планета {planet_name} не найдена. Попробуй еще раз.")
-        return
+        return update.message.reply_text(f"Планета {planet_name} не найдена. Попробуй еще раз.")
     planet.compute(ephem.now())
     constellation = ephem.constellation(planet)
     answer = f"Планета {planet_name} находится в созвездии: {constellation[1]}."
